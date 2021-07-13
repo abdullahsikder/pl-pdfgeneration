@@ -179,7 +179,7 @@ class Pdfgeneration(ChrisApp):
             for column_name in classification_data:
                 prediction = classification_data.get(column_name, 'N/A')
                 if (column_name != 'prediction') and (column_name != 'Prediction') and (column_name != '**DISCLAIMER**'):
-                    percentage = prediction + "(" + str(round(float(prediction)*100,2))+"%)"
+                    percentage = f'{prediction} ({float(prediction)*100:.2f}%)'
                     prediction_analysis += f"<h3>{column_name}: <span>{percentage}</span></h3>"
 
             txt = txt.replace("${PRED_ANALYSIS}", prediction_analysis)
